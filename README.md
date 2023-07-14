@@ -1,5 +1,64 @@
 # Time Raiders
-Team Gold's dungeon game for Coursework 2 of CM50109 Software Engineering
+Welcome to Time Raiders! This README file provides an overview of the game and its gameplay mechanics. Team Gold's dungeon game for Coursework 2 of CM50109 Software Engineering. 
+
+## Gameplay 
+
+### Layout 
+
+The game features the following elements in its layout:
+
+- Health Bar: Represents the player's health status.
+- Inventory: Displays the collected parts of the time machine.
+- Bob: The player character, controlled by the user.
+
+## Basic Controls 
+
+Use the following controls to navigate and interact with the game:
+
+Key	Action
+W/↑	Move up
+S/↓	Move down
+A/←	Move left
+D/→	Move right
+ESC	Pause/open menu
+
+## Pause Menu 
+
+To pause the game, press the "ESC" key on your keyboard. The pause menu offers the following options:
+
+- **CONTINUE** Resume the game from where you left off.
+- **MAIN MENU**: Return to the main menu.
+- **QUIT**: Exit the game.
+
+## Collecting Parts
+
+In order to restore the time machine, you need to collect specific parts. Explore the rooms and collect the following parts by walking over them:
+
+- **Screw**: Use screws to prevent the time machine from falling apart. Remember, lefty loosey, righty tighty.
+- **Big Red Button**: Every powerful machine needs a big red button.
+- **Red Wire**: This live wire delivers 1.21 gigawatts of electricity straight to the time machine.
+- **Green Wire**: Grounding wire to protect travelers in case of a short circuit.
+Ensure you collect all the parts to successfully get the time machine up and running again.
+
+## Evading Security 
+
+Beware of security measures in the game. If you enter the searchlight of a camera or a guard, your health bar will be reduced by 25%. Losing 100% of your health will result in game over. When this happens, you have the following options:
+
+- **RESTART**: Restart the game.
+- **MAIN MENU**: Return to the main menu.
+- **QUIT**: Exit the game.
+
+## Assembling the Time Machine
+
+Your objective is to navigate through the dungeon and reach the time machine room. If you arrive at the time machine without collecting all the parts, you will receive an error code indicating the missing parts. Remember the machine's location and return after fully exploring the dungeon and collecting all the parts.
+
+Once you have collected all the parts, enter the room with the time machine to assemble it. Your hard work is done! Simply step on the machine to activate it and return home.
+
+Congratulations on completing the game! Keep in mind that the dungeon is randomly generated, providing a unique experience each time you play. Challenge yourself to win again and discover new variations.
+
+Enjoy playing Time Raiders!
+
+---
 
 ## Installation Guide for Project: Time Raiders
 The GitHub repository for the game can be found at this link. To install the game, follow the steps below:
