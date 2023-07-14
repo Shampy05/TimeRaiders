@@ -1,0 +1,95 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Character.gd" type="Script" id=1]
+[ext_resource path="res://Hurtbox.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/Entities/PlayerDownWalkL.png" type="Texture" id=3]
+[ext_resource path="res://assets/Entities/PlayerLeftWalkR.png" type="Texture" id=4]
+[ext_resource path="res://assets/Entities/PlayerDownStand.png" type="Texture" id=5]
+[ext_resource path="res://assets/Entities/PlayerDownWalkR.png" type="Texture" id=6]
+[ext_resource path="res://assets/Entities/PlayerLeftWalkL.png" type="Texture" id=7]
+[ext_resource path="res://assets/Entities/PlayerRightWalkL.png" type="Texture" id=8]
+[ext_resource path="res://assets/Entities/PlayerLeftStand.png" type="Texture" id=9]
+[ext_resource path="res://assets/Entities/PlayerRightWalkR.png" type="Texture" id=10]
+[ext_resource path="res://assets/Entities/PlayerRightStand.png" type="Texture" id=11]
+[ext_resource path="res://assets/Entities/PlayerUpStand.png" type="Texture" id=12]
+[ext_resource path="res://assets/Entities/PlayerUpWalkL.png" type="Texture" id=13]
+[ext_resource path="res://assets/Entities/PlayerUpWalkR.png" type="Texture" id=14]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "DownStand",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "DownWalk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "LeftStand",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "LeftWalk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "RightStand",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "RightWalk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "UpStand",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "UpWalk",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 7.0
+height = 4.0
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 5.0
+height = 4.0
+
+[node name="Character" type="KinematicBody2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 2 )
+animation = "DownStand"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.5, 0.5 )
+
+[node name="Hurtbox" parent="." instance=ExtResource( 2 )]
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2( 0, 1 )
+shape = SubResource( 3 )
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+
+[editable path="Hurtbox"]

@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://HealthUI.gd" type="Script" id=1]
+[ext_resource path="res://assets/Interface/BloodFull.png" type="Texture" id=2]
+[ext_resource path="res://assets/Interface/BloodEmpty.png" type="Texture" id=3]
+
+[node name="HealthUI" type="Control"]
+margin_left = 16.0
+margin_top = 8.0
+margin_right = 272.0
+margin_bottom = 40.0
+rect_scale = Vector2( 0.96938, 1.04086 )
+rect_pivot_offset = Vector2( -16.5219, -7.69783 )
+script = ExtResource( 1 )
+
+[node name="BloodUIEmpty" type="TextureRect" parent="."]
+anchor_left = -0.062
+anchor_top = -0.25
+anchor_right = -0.062
+anchor_bottom = -0.25
+margin_left = -0.127999
+margin_right = 59.872
+margin_bottom = 15.0
+texture = ExtResource( 3 )
+stretch_mode = 2
+
+[node name="BloodUIFull" type="TextureRect" parent="."]
+anchor_left = -0.062
+anchor_top = -0.25
+anchor_right = -0.062
+anchor_bottom = -0.25
+margin_left = -0.127999
+margin_right = 59.872
+margin_bottom = 15.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 2

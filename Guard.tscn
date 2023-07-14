@@ -1,0 +1,79 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://GuardSearchLight.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Guard.gd" type="Script" id=2]
+[ext_resource path="res://assets/Entities/GuardLeftWalkL.png" type="Texture" id=3]
+[ext_resource path="res://assets/Entities/GuardUpWalkL.png" type="Texture" id=4]
+[ext_resource path="res://assets/Entities/GuardLeftStand.png" type="Texture" id=5]
+[ext_resource path="res://assets/Entities/GuardRightStand.png" type="Texture" id=6]
+[ext_resource path="res://assets/Entities/GuardDownWalkR.png" type="Texture" id=7]
+[ext_resource path="res://assets/Entities/GuardRightWalkL.png" type="Texture" id=8]
+[ext_resource path="res://assets/Entities/GuardLeftWalkR.png" type="Texture" id=9]
+[ext_resource path="res://assets/Entities/GuardDownWalkL.png" type="Texture" id=10]
+[ext_resource path="res://assets/Entities/GuardDownStand.png" type="Texture" id=11]
+[ext_resource path="res://assets/Entities/GuardRightWalkR.png" type="Texture" id=12]
+[ext_resource path="res://assets/Entities/GuardUpStand.png" type="Texture" id=13]
+[ext_resource path="res://assets/Entities/GuardUpWalkR.png" type="Texture" id=14]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "DownStand",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 7 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "DownWalk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "LeftStand",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "LeftWalk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "RightStand",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 6 ), ExtResource( 12 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "RightWalk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "UpStand",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "UpWalk",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 8.94427
+
+[node name="Guards" type="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( -8, -8 )
+frames = SubResource( 1 )
+animation = "DownWalk"
+frame = 2
+playing = true
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 1 )
+shape = SubResource( 3 )
+
+[node name="GuardSearchLight" parent="." instance=ExtResource( 1 )]

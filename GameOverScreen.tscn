@@ -1,0 +1,78 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://GameOverScreen.gd" type="Script" id=1]
+[ext_resource path="res://assets/RobotoBold24.tres" type="DynamicFont" id=2]
+
+[sub_resource type="Theme" id=1]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.305882, 0.290196, 0.290196, 1 )
+border_color = Color( 0.027451, 0.00784314, 0.00784314, 1 )
+shadow_color = Color( 0.25098, 0.172549, 0.172549, 0.6 )
+shadow_size = 43
+
+[node name="GameOverScreen" type="CanvasLayer"]
+pause_mode = 2
+script = ExtResource( 1 )
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 1 )
+custom_styles/panel = SubResource( 2 )
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+margin_right = 1024.0
+margin_bottom = 600.0
+custom_constants/margin_right = 40
+custom_constants/margin_top = 40
+custom_constants/margin_left = 40
+custom_constants/margin_bottom = 40
+
+[node name="Rows" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 984.0
+margin_bottom = 560.0
+custom_constants/separation = 40
+
+[node name="Title" type="Label" parent="PanelContainer/MarginContainer/Rows"]
+margin_right = 944.0
+margin_bottom = 61.0
+custom_fonts/font = ExtResource( 2 )
+text = "GAME OVER
+"
+align = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/MarginContainer/Rows"]
+margin_top = 101.0
+margin_right = 944.0
+margin_bottom = 211.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/Rows/CenterContainer"]
+margin_left = 418.0
+margin_right = 525.0
+margin_bottom = 110.0
+custom_constants/separation = 25
+
+[node name="RestartButton" type="Button" parent="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer"]
+margin_right = 107.0
+margin_bottom = 20.0
+text = "  RESTART  "
+
+[node name="MainMenuButton" type="Button" parent="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer"]
+margin_top = 45.0
+margin_right = 107.0
+margin_bottom = 65.0
+text = "  MAIN MENU  "
+
+[node name="QuitButton" type="Button" parent="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer"]
+pause_mode = 2
+margin_top = 90.0
+margin_right = 107.0
+margin_bottom = 110.0
+text = "  QUIT  "
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/RestartButton" to="." method="_on_RestartButton_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/MainMenuButton" to="." method="_on_MainMenuButton_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
